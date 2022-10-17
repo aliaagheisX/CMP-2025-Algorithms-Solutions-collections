@@ -1,0 +1,16 @@
+ll n, t, x;
+vector<ll> v;
+
+bool recurse(ll i, ll sum) {
+	if (i == n) return sum == t;
+	return recurse(i + 1, sum) || recurse(i + 1, sum + v[i]);
+}
+
+void solve(ll tc) {
+	cin >> t >> n;
+	for (ll i = 0; i < n; i++) {
+		cin >> x;
+		v.push_back(x);
+	}
+	cout << recurse(0, 0) << endl;
+}
