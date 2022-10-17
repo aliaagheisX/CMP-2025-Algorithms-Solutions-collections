@@ -1,0 +1,15 @@
+ll m, n, k;
+
+
+ll recurse(ll i, ll nones) {
+	if (i == n) return nones == k;
+	ll nways = 0;
+	nways += recurse(i + 1, nones + 1);
+	nways += recurse(i + 1, nones);
+	return nways;
+}
+
+void solve(ll tc) {
+	cin >> n >> k;
+	cout << recurse(0, 0) << endl;
+}
